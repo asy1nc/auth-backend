@@ -1,17 +1,10 @@
-import AuthService from "../services/auth.service";
-import { ILoginPayload, ISignupPayload } from "../interfaces/auth.interface";
-import {
-  signupValidation,
-  loginValidation,
-  validateAndThrow,
-} from "../validations/auth.validation";
+import AuthService from '../services/auth.service';
+import { ILoginPayload, ISignupPayload } from '../interfaces/auth.interface';
+import { signupValidation, loginValidation, validateAndThrow } from '../validations/auth.validation';
 
-async function AuthController(
-  type: "login" | "signup",
-  payload: ISignupPayload | ILoginPayload
-) {
+async function AuthController(type: 'login' | 'signup', payload: ISignupPayload | ILoginPayload) {
   try {
-    if (type === "login") {
+    if (type === 'login') {
       await validateAndThrow(loginValidation, payload as ILoginPayload);
     } else {
       await validateAndThrow(signupValidation, payload as ISignupPayload);

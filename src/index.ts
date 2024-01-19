@@ -6,11 +6,11 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res, next) => {
-    res.send('OK');
-})
+  res.send('OK');
+});
 
 app.use('/auth', AuthRouter);
 
 app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-})
+  console.log('Server is running on port 3000');
+});
