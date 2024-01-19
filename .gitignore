@@ -2,3 +2,4 @@
 .env
 /dist
 yarn-error.log
+.vscode
