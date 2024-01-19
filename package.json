@@ -7,11 +7,15 @@
   "author": "asy1nc",
   "license": "MIT",
   "scripts": {
-    "dev" : "tsc && nodemon dist/index.js"
+    "dev": "tsc && nodemon dist/index.js"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
     "nodemon": "^3.0.3",
+    "prisma": "^5.8.1",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.8.1"
   }
 }
