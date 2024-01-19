@@ -19,6 +19,7 @@ class AuthService {
 
     try {
       user = await prisma.user.create({ data: payload });
+      // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     } catch (error: any) {
       throw new errors.AsyncError('Internal Server Error', 500, error);
     }

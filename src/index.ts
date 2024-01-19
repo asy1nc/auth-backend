@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res, next) => {
+app.get('/', (_, res) => {
   res.send('OK');
 });
 
