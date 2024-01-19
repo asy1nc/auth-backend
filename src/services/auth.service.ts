@@ -67,7 +67,7 @@ class AuthUtils {
   async exists(email?: string, arise = false) {
     const userExists = !!(await prisma.user.findUnique({ where: { email } }));
 
-    if (userExists && !arise) {
+    if (userExists && arise) {
       throw new errors.ConflictError('User already exists');
     }
 

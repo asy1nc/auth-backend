@@ -1,11 +1,13 @@
 class BaseError extends Error {
   code: number;
   innerError?: Error;
+  response: boolean;
 
-  constructor(message: string, code: number, innerError?: Error) {
+  constructor(message: string, code: number, innerError?: Error, response = true) {
     super(message);
     this.code = code;
     this.innerError = innerError;
+    this.response = response;
 
     Object.setPrototypeOf(this, new.target.prototype);
   }
@@ -13,7 +15,7 @@ class BaseError extends Error {
 
 class AsyncError extends BaseError {
   constructor(message = 'Internal Server Error', code = 500, innerError?: Error) {
-    super(message, code, innerError);
+    super(message, code, innerError, false);
   }
 }
 
@@ -41,4 +43,4 @@ class BadRequestError extends BaseError {
   }
 }
 
-export { AsyncError, ResourceNotFoundError, ConflictError, UnauthorizedError, BadRequestError };
+export { BaseError, AsyncError, ResourceNotFoundError, ConflictError, UnauthorizedError, BadRequestError };
