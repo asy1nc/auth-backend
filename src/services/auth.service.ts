@@ -1,4 +1,4 @@
-import { ISignupPayload } from "../interfaces/auth.interface";
+import { ISignupPayload, ILoginPayload } from "../interfaces/auth.interface";
 import prisma from "../clients/prisma.client";
 import * as errors from "./error.service";
 import bcrypt from "bcrypt";
@@ -31,8 +31,14 @@ class AuthService {
     return returnPayload;
   }
 
-  async login(password: string, email?: string, username?: string) {
+  async login(payload: ILoginPayload) {
     let user = null;
+
+    const {
+      username,
+      email,
+      password
+    } = payload;
 
     if (email) {
       user = await prisma.user.findUnique({ where: { email } });

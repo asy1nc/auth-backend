@@ -4,6 +4,13 @@ interface ISignupPayload {
     username: string;
 }
 
+interface ILoginPayload {
+    email: string;
+    password: string;
+    username: string;
+}
+
 export {
-    ISignupPayload
+    ISignupPayload,
+    ILoginPayload
 }
